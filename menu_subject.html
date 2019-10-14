@@ -1,0 +1,550 @@
+﻿<html>
+<head>
+	<title>강좌 메뉴</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<link type = "text/css" rel="stylesheet" href="css/style2.css">
+	<link type = "text/css" rel="stylesheet" href="css/filter.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/header_subject.css">
+    <link type="text/css" rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/mainbootstrap.js"></script>
+    <script src="js/prototype.js"></script>
+    <script src="js/common.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+
+<!--
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='#'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>Products</span></a>
+      <ul>
+         <li><a href='#'><span>Product 1</span></a></li>
+         <li><a href='#'><span>Product 2</span></a></li>
+         <li class='last'><a href='#'><span>Product 3</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>About</span></a>
+      <ul>
+         <li><a href='#'><span>Company</span></a></li>
+         <li class='last'><a href='#'><span>Contact</span></a></li>
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+-->
+
+
+<!-- HEADER -->
+<div id="headers">
+    <div class="header_new" style="z-index: 1001">
+   <div class="hcont" style="z-index: 1000">
+     <div class="mobile_menu">
+         <button type="button" class="menu-toggle" onclick="toggleMenu()">
+             <span class="sr-only">Toggle navigation</span>
+         </button>
+     </div>
+     <div class="menu-collapse" id="sidebar">
+        <div class="menu-header">
+         <button type="button" class="menu-toggle" onclick="toggleMenu()">
+             <span class="sr-only">Toggle navigation</span>
+         </button>
+        </div>
+        <div class="menu-contents">
+            <section class="menu-profile">
+                <div class="menu-mypage">
+                    <img src="images/icon_user.png">
+                </div>
+                <div class="menu-user">
+                    <a class="menu-login" href="#">로그인</a>
+                    <a class="menu-register" href="signup_agree.html">회원가입</a>
+                </div>
+            </section>
+            <section class="menu-items">
+                <a class="menu-item" href="#">홈</a>
+                <a class="menu-item" href="menu_subject.html">강좌</a>
+                <a class="menu-item" href="#">멘토</a>
+                <a class="menu-item" href="#">후기</a>
+                <a class="menu-item" href="#">고객지원</a>
+            </section>
+        </div>
+     </div>
+     <button type="button" class="menu-dim" onclick="toggleMenu()"></button>
+
+   <div class="top_menu">
+   <div class="top_menu2">
+    <div class="logo" style="width:30%">
+        <a href="index.html"><img class="logo_img" src="images/logo.png"></a>
+    </div>
+
+    <div class="rcont" style="width:70%">
+        <ul>
+            <li class="padding28">마이페이지</li>
+            <li class="padding28">로그인</li>
+            <a href="signup_agree.html"><li class="padding28">회원가입</li></a>
+        </ul>
+    </div>
+    </div>
+    
+    <div class="mobile_search" style="width: 100%">
+        <img src="images/filter.png" class="filter_menu" align="right" onclick="">
+    </div>
+   </div>
+   </div>
+</div>
+</div>
+<!-- //HEADER -->
+     
+<!--메뉴 -->
+<table class="menu">
+        <tr>
+            <td colspan="5" class="line"></td>
+        </tr>
+        
+        <tr class="menu2"> 
+            <td class="menu_bg">
+              <table class="table_menu_txt"> 
+                <tr>
+                    <td style="width:7%; text-align: left">
+                        <strong><a href="index.html" class="txt_menu">홈</a></strong>
+                    </td>
+                    
+                    <td style="width: 10%; text-align: left">
+                        <strong><a href="menu_subject.html" class="txt_menu">강좌</a></strong>
+                    </td>
+                    
+                    <td style="width: 10%; text-align: left">
+                        <strong><a href="index.html" class="txt_menu">멘토</a></strong>
+                    </td>
+                    
+                    <td style="width: 10%; text-align: left">
+                        <strong><a href="index.html" class="txt_menu">후기</a></strong>
+                    </td>
+                    
+                     <td style="width: 20%; text-align: left">
+                        <strong><a href="index.html" class="txt_menu">고객지원</a></strong>
+                    </td> 
+                </tr>
+              </table>
+             </td>
+        </tr>
+    
+        <tr>
+          <td colspan="5" class="line2"/>
+        </tr>
+</table>
+       
+<!--검색 필터-->
+<div class="table_search">
+<table class="table_s1">
+<div id="container">
+	<div class="main3_cont">
+		<div class="catesub_list filter" id="sub9" style="">
+			<div class="main">
+			
+                <div class="inbox">
+					<div class="left">강좌&nbsp;&nbsp;</div>
+					<div class="right" id="subjectSub">
+						<input type="hidden" id="subject" value="">
+						<input type="hidden" id="subjectMain" value="">
+						<select onchange="subjectSelect(this.value);">
+							<option value="">강좌</option>
+                            <option value="0" >디자인</option>
+                            <option value="1" >IT</option>
+                            <option value="2" >영상</option>
+                            <option value="3" >실무</option>
+                            <option value="4" >영어</option>
+                        </select>		
+						
+                    <select id="subjectSubLayer0" style="margin-left:10px" class="off" onchange="subjectSubSelect(this.value)">
+                            <option value="1,2,3,4" >디자인 ALL</option>
+                            <option value="1" >포토샵</option>
+                            <option value="2" >일러스트레이터</option>
+                            <option value="3" >UI&UX</option>
+                            <option value="4" >편집디자인</option>
+				    </select>
+                    <select id="subjectSubLayer1" style="margin-left:10px" class="off" onchange="subjectSubSelect(this.value)">
+                        <option value="26,28,30,27,29" >IT ALL</option>
+                        <option value="1" >웹 개발</option>
+                        <option value="2" >앱 개발</option>
+                        <option value="3" >게임 개발</option>
+                        <option value="4" >Languages</option>
+                        <option value="5" >Database</option>
+                    </select>
+                    <select id="subjectSubLayer2" style="margin-left:10px" class="off" onchange="subjectSubSelect(this.value)">
+                        <option value="33,31,32" >영상 ALL</option>
+                        <option value="33" >프리미어</option>
+                        <option value="31" >에프터이펙트</option>
+                        <option value="32" >파이널 컷</option>
+                    </select>
+                    <select id="subjectSubLayer3" style="margin-left:10px" class="off" onchange="subjectSubSelect(this.value)">
+                        <option value="36,39,37,69,35,38" >실무 ALL</option>
+                        <option value="36" >엑셀</option>
+                        <option value="39" >파워포인트</option>
+                        <option value="37" >워드</option>
+                        <option value="69" >회계</option>
+                    </select>
+                    <select id="subjectSubLayer4" style="margin-left:10px" class="off" onchange="subjectSubSelect(this.value)">
+                        <option value="48,46" >영어 ALL</option>
+                        <option value="48" >토익&토플</option>
+                        <option value="46" >오픽&토스</option>
+                        <option value="46" >회화</option>
+                    </select>
+                       
+                    <script>
+							function subjectSelect(val)
+							{								
+								$('#subjectSub').find('.on').addClass('off');
+								$('#subjectSubLayer'+val).removeClass('off');
+								$('#subjectSubLayer'+val).addClass('on');
+								$('#subject').val($('#subjectSubLayer'+val+' option:first').val());
+								$('#subjectMain').val(val);								
+								$('#subjectSubLayer'+val).prop("selectedIndex", 0);
+							}
+
+							function subjectSubSelect(val)
+							{
+								 $('#subject').val(val);
+							}
+				   </script>
+					</div>
+				</div>			
+			
+			
+				<div class="inbox">
+					<div class="left">지역&nbsp;&nbsp;</div>
+					<div class="right" id="regionSub">
+						<input type="hidden" id="region" value="">
+						<input type="hidden" id="regionMain" value="">
+						<select onchange="regionSelect(this.value);">
+							<option value="">지역</option>
+                            <option value="0" >서울</option>
+                            <option value="1" >경기</option>
+                            <option value="2" >인천</option>
+                            <option value="3" >부산</option>
+                            <option value="4" >경상,대구,울산</option>
+                            <option value="5" >대전,충청</option>
+                            <option value="6" >광주,전라,제주</option>
+                        </select>		
+						
+                    <select id="regionSubLayer0" style="margin-left:10px" class="off" onchange="regionSubSelect(this.value)">
+                            <option value="1,4,14,9,2,5,17,7,11,8,21,15,19,6,13,10,22,24,3,18,23,75,25,12,16" >서울 ALL(384)</option>
+                            <option value="1" >강남(87)</option>
+                            <option value="4" >신촌홍대(85)</option>
+                            <option value="14" >건대(35)</option>
+                            <option value="9" >잠실(22)</option>
+                            <option value="2" >사당(19)</option>
+                            <option value="5" >종로(17)</option>
+                            <option value="17" >노원(17)</option>
+                            <option value="7" >성북(17)</option>
+                            <option value="11" >신림(14)</option>
+                            <option value="8" >혜화(10)</option>
+                            <option value="21" >목동(7)</option>
+                            <option value="15" >용산(7)</option>
+                            <option value="19" >마포(6)</option>
+                            <option value="6" >영등포(6)</option>
+                            <option value="13" >회기(5)</option>
+                            <option value="10" >왕십리(5)</option>
+                            <option value="22" >구로(5)</option>
+                            <option value="24" >은평(4)</option>
+                            <option value="3" >신사(4)</option>
+                            <option value="18" >수유(4)</option>
+                            <option value="23" >청량리(2)</option>
+                            <option value="75" >마곡더랜드타워(2)</option>
+                            <option value="25" >미아(2)</option>
+                            <option value="12" >동작(1)</option>
+                            <option value="16" >충무로(1)</option>
+				    </select>
+                    <select id="regionSubLayer1" style="margin-left:10px" class="off" onchange="regionSubSelect(this.value)">
+                        <option value="26,28,30,27,29" >경기 ALL(41)</option>
+                        <option value="26" >분당(15)</option>
+                        <option value="28" >일산(12)</option>
+                        <option value="30" >수원(10)</option>
+                        <option value="27" >서현(3)</option>
+                        <option value="29" >의정부(1)</option>
+                    </select>
+                    <select id="regionSubLayer2" style="margin-left:10px" class="off" onchange="regionSubSelect(this.value)">
+                        <option value="33,31,32" >인천 ALL(8)</option>
+                        <option value="33" >부평(6)</option>
+                        <option value="31" >송도(1)</option>
+                        <option value="32" >구월동(1)</option>
+                    </select>
+                    <select id="regionSubLayer3" style="margin-left:10px" class="off" onchange="regionSubSelect(this.value)">
+                        <option value="36,39,37,69,35,38" >부산 ALL(24)</option>
+                        <option value="36" >부산서면(9)</option>
+                        <option value="39" >부산해운대(5)</option>
+                        <option value="37" >부산부경대(4)</option>
+                        <option value="69" >부산동래(3)</option>
+                        <option value="35" >부산대(2)</option>
+                        <option value="38" >부산남포(1)</option>
+                    </select>
+                    <select id="regionSubLayer4" style="margin-left:10px" class="off" onchange="regionSubSelect(this.value)">
+                        <option value="48,46" >경상,대구,울산 ALL(5)</option>
+                        <option value="48" >대구중앙(4)</option>
+                        <option value="46" >창원(1)</option>
+                    </select>
+                    <select id="regionSubLayer5" style="margin-left:10px" class="off" onchange="regionSubSelect(this.value)">
+                        <option value="55,74,73,52,72" >대전,충청 ALL(14)</option>
+                        <option value="55" >대전역(5)</option>
+                        <option value="74" >천안(4)</option>
+                        <option value="73" >둔산(2)</option>
+                        <option value="52" >유성구(2)</option>
+                        <option value="72" >은행(1)</option>
+                    </select>
+                    <select id="regionSubLayer6" style="margin-left:10px" class="off" onchange="regionSubSelect(this.value)">
+                        <option value="63" >광주,전라,제주 ALL(1)</option>
+                        <option value="63" >제주(1)</option>
+                    </select>
+                       
+                    <script>
+							function regionSelect(val)
+							{								
+								$('#regionSub').find('.on').addClass('off');
+								$('#regionSubLayer'+val).removeClass('off');
+								$('#regionSubLayer'+val).addClass('on');
+								$('#region').val($('#regionSubLayer'+val+' option:first').val());
+								$('#regionMain').val(val);								
+								$('#regionSubLayer'+val).prop("selectedIndex", 0);
+							}
+
+							function regionSubSelect(val)
+							{
+								 $('#region').val(val);
+							}
+				   </script>
+					</div>
+				</div>  
+				
+				<div class="inbox">
+					<div class="left">요일 &nbsp;</div>
+					<div class="right">
+						<div class="days">
+							<ul id="days">
+								<li day="1" class="">월</li>
+								<li day="2" class="">화</li>
+								<li day="3" class="">수</li>
+								<li day="4" class="">목</li>
+								<li day="5" class="">금</li>
+								<li day="6" class="">토</li>
+								<li day="0" class="">일</li>	
+								<button class="btn_search">검색</button>
+							</ul>	
+						</div>
+					</div>
+				</div> 
+            <script>
+            function filterView(){
+				if($('#sub9').css('display')!='block'){
+					$('.filter_head').css('margin-top','0');
+					$('#menu9').css('background-color','#f1f1f1').css('border-bottom','solid 1px #f1f1f1');
+					$('.catesub_list').hide();
+					$('#sub9').show();
+					$('#filterImage').hide();
+					$('.cate').removeClass('cate2').addClass('cate3');
+					$('#menu_back_fixed').hide();
+
+					$('#filterCloseImage').show();
+
+				}else{
+					$('#sub9').hide();
+					$('#menu9').css('background-color','#fff').css('border-bottom','solid 1px #c9c9c9'); 
+					$('.catesub_list.cates').hide();
+					$('#filterImage').show();
+					$('#filterCloseImage').hide();
+					$('.filter_head').css('margin-top','0px');
+				}	 
+			}
+
+			$(function(){
+				if($('#sub9').css('display')=='block'){
+					$('#menu9').css('background-color','#f1f1f1').css('border-bottom','solid 1px #f1f1f1');
+					$('#filterImage').hide();
+					$('#filterCloseImage').show();
+				}
+
+				$('#menu_back_fixed').mouseenter(function(){
+					$('.filter_head').css('margin-top','0');
+					$('.cates').hide();
+					$('.cate').removeClass('cate2').addClass('cate3');
+					$('#menu_back_fixed').hide();
+				});
+				 
+				$('li','.days').click(function(){
+					if($(this).hasClass('on')){
+						$(this).removeClass('on');
+					}else{
+						$(this).addClass('on');
+					}
+				});
+				$('.option','.inbox').click(function(){
+					if($(this).hasClass('on')){
+						$(this).removeClass('on');
+					}else{
+						$(this).addClass('on');
+					}
+				});
+			});
+			  
+                
+//			$('#search').click(function(){
+//				var day = "";
+////				var time = "";
+////				var tType = "";
+//				$("#days").children().each(function(){
+//					if($(this).hasClass('on')){						
+//						if(day=='')
+//						{
+//							day = $(this).attr("day");
+//						}
+//						else
+//						{
+//							day = day + "," + $(this).attr("day");
+//						}
+//					}
+//				});
+            </script>
+
+            </div>
+			</div>
+		</div>
+</div>
+</table>
+</div>
+ 
+ 
+ 
+<!-- content num-->
+<div class="sub_num1">      
+    <div class="sub_num"><strong>▶ &nbsp;&nbsp;검색 결과 : 강좌 200개</strong></div>
+</div>
+<!--<div class="hr_line" style="display: none"></div>       -->
+   
+<!--content list-->
+<table style="width:100%;">
+<tr>
+<td style="width: 100%">
+    <div class="images_list">
+    <div class="box">
+        <img class="opac" src="images/9.jpg"/> 
+        <div class="text">
+            <p class="title">웹 디자인을 위한 다지인 기초</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+    </div>
+    <div class="box">
+        <img class="opac" src="images/9.png"/>
+         <div class="text">
+            <p class="title">한번에 끝내는 키 토익</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+    </div>
+    <div class="box">
+        <img class="opac" src="images/10.png"/> 
+         <div class="text">
+            <p class="title">데이나쌤의 2주 오픽</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+    </div>
+    <div class="box">
+        <img class="opac" src="images/11.png"/> 
+         <div class="text">
+            <p class="title">비지니스 영작문</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+    </div>
+    <div class="box">
+        <img class="opac" src="images/12.png"/>
+         <div class="text">
+            <p class="title">랜드마크 영어 회화</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+    </div>
+    <div class="box">
+        <img class="opac" src="images/13.png"/>
+         <div class="text">
+            <p class="title">스프레드시트 일반 - 필기</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+    </div>
+    <div class="box">
+        <img class="opac" src="images/14.png"/>
+         <div class="text">
+            <p class="title">스프레드시트 일반 - 실기</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+        </div>
+    <div class="box">
+        <img class="opac" src="images/15.png"/> 
+         <div class="text">
+            <p class="title">전산세무 2급 - 이론</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+        </div>
+    <div class="box">
+        <img class="opac" src="images/16.png"/> 
+         <div class="text">
+            <p class="title">전산세무 2급 - 실기</p>
+            <p class="money"> <c>경기</c> sun 2pm | 일 20,000원</p>
+        </div>
+    </div>
+    </div> 
+    
+    </td>
+    
+<tr>
+<td> 
+    <div style="height: 100px;"></div>
+</td>
+</tr>
+</table>
+
+<!-- Footer -->
+<div id="footers">
+<div class="footer_content">
+<div class="footer_col">
+   <h1 class="footer_title">(주) 시나브로</h1>
+
+   <div class="footer_info">
+       <div class="footer_info_cont">
+           <div class="footer_info_title">회사 정보</div>
+           <div class="footer_info_desc">대표 : 김희숙</div>
+           <div class="footer_info_desc">주소 : 서울시 강남구</div>
+           <div class="footer_info_desc">전화번호 : 02)1111-2222</div>
+           <div class="footer_info_desc">영업시간 : 09:00 - 18:00</div>
+       </div>
+       <div class="footer_info_cont">
+           <div class="footer_info_title">문의</div>
+           <div class="footer_info_desc">상담 : 10:00 - 18:00</div>
+           <div class="footer_info_desc">문의전화 : 02)888-999</div>
+       </div>
+       <div class="footer_info_cont">
+           <div class="footer_info_title">정책</div>
+           <div class="footer_info_desc">이용약관</div>
+           <div class="footer_info_desc">개인정보 취급 방침</div>
+       </div>
+   </div>
+
+   <div class="footer_sns">
+       <img src="images/icon_facebook.png">
+       <img src="images/icon_instagram.png">
+       <img src="images/icon_youtube.png">
+       <img src="images/icon_naver.png">
+       <img src="images/icon_daum.png">
+   </div>
+</div>
+</div>
+</div>
+<!-- //Footer   -->
+
+<!-- //WRAP 
+</body>
+
+</html>
